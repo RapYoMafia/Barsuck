@@ -1,0 +1,83 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @article.title %>
+</p>
+
+<p>
+  <b>Subtitle:</b>
+  <%= @article.subtitle %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @article.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
+
+
+
+
+
+
+<% @galleries = Gallery.where(:article_id =>params[:id]) %>
+
+<h1>Listing galleries</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Article</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @galleries.each do |gallery| %>
+  <tr>
+    <td><%= link_to gallery.name, "http://localhost:3000/filter_gallery_items/#{gallery.id}" %> </td>
+    <td><%= gallery.article.title %></td>
+    <td><%= link_to 'Show', gallery %></td>
+    <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
+    <td><%= link_to 'Destroy', gallery, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Gallery', new_gallery_path %>
+
+
+<%@videos = Video.where(:article_id =>params[:id])%>
+<h1>Listing videos</h1>
+
+<table>
+  <tr>
+    <th>Thumbnail</th>
+    <th>Url</th>
+    <th>Article</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @videos.each do |video| %>
+  <tr>
+    <td><%= image_tag video.image.url(:iphone_thumb) %></td>
+    <td><%= video.url %></td>
+    <td><%= video.article.title %></td>
+    <td><%= link_to 'Show', video %></td>
+    <td><%= link_to 'Edit', edit_video_path(video) %></td>
+    <td><%= link_to 'Destroy', video, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Video', new_video_path %>
