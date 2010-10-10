@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h2>Article</h2>
 <p>
   <b>Title:</b>
   <%= @article.title %>
@@ -21,18 +21,16 @@
 
 
 
-
-
-
 <% @galleries = Gallery.where(:article_id =>params[:id]) %>
-
-<h1>Listing galleries</h1>
+<%if @galleries != []%>
+<hr />
+<h4>galleries</h4>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Article</th>
-    <th></th>
+    <th>Date</th>
     <th></th>
     <th></th>
   </tr>
@@ -41,20 +39,38 @@
   <tr>
     <td><%= link_to gallery.name, "http://localhost:3000/filter_gallery_items/#{gallery.id}" %> </td>
     <td><%= gallery.article.title %></td>
-    <td><%= link_to 'Show', gallery %></td>
+    <td><%= gallery.date %></td>
     <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
     <td><%= link_to 'Destroy', gallery, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
+  <tr>
+    <td>Preview</td>
+    <td>Description</td>
+    <td colspan="3">Actions</td>
+  </tr>
+  <% gallery.gallery_items.each do |gallery_item| %>
+  <tr>
+    <td><%= image_tag gallery_item.image.url(:iphone_thumb) %> </td>
+    <td><%= gallery_item.description %></td>
+    <td><%= link_to 'Show', gallery_item %></td>
+    <td><%= link_to 'Edit', edit_gallery_item_path(gallery_item) %></td>
+    <td><%= link_to 'Destroy', gallery_item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <%end%>
 <% end %>
 </table>
 
 <br />
 
 <%= link_to 'New Gallery', new_gallery_path %>
+<%end%>
+
 
 
 <%@videos = Video.where(:article_id =>params[:id])%>
-<h1>Listing videos</h1>
+<%if @videos != [] %>
+<hr />
+<h4>Listing videos</h4>
 
 <table>
   <tr>
@@ -81,3 +97,4 @@
 <br />
 
 <%= link_to 'New Video', new_video_path %>
+<%end%>

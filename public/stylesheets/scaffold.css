@@ -54,3 +54,20 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+
+td, th{
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+  margin: 0px;
+  text-align: left;
+}
+
+table{
+  border-collapse: collapse;
+}
+
+ul.nav li{
+  display: inline;
+}
