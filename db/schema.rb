@@ -10,13 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101008091859) do
+ActiveRecord::Schema.define(:version => 20101011094607) do
+
+  create_table "article_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.string   "subtitle"
     t.text     "body"
     t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "article_category_id"
+  end
+
+  create_table "check_updates", :force => true do |t|
+    t.string   "current_version"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

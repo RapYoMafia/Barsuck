@@ -1,4 +1,8 @@
 Bazaar::Application.routes.draw do
+  resources :article_categories
+
+  resources :check_updates
+
   resources :videos
 
   resources :gallery_items
