@@ -129,3 +129,21 @@ form.formtastic fieldset > ol > li.datetime fieldset ol li label { display:none;
 form.formtastic fieldset > ol > li.date fieldset ol li label input, 
 form.formtastic fieldset > ol > li.time fieldset ol li label input, 
 form.formtastic fieldset > ol > li.datetime fieldset ol li label input { display:inline; margin:0; padding:0;  }
+
+
+
+td, th{
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+  margin: 0px;
+  text-align: left;
+}
+
+table{
+  border-collapse: collapse;
+}
+
+ul.nav li{
+  display: inline;
+}
