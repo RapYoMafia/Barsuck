@@ -1,0 +1,25 @@
+<h1>Listing check_updates</h1>
+
+<table>
+  <tr>
+    <th>Current version</th>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @check_updates.each do |check_update| %>
+  <tr>
+    <td><%= check_update.current_version %></td>
+    <td><%= check_update.url %></td>
+    <td><%= link_to 'Show', check_update %></td>
+    <td><%= link_to 'Edit', edit_check_update_path(check_update) %></td>
+    <td><%= link_to 'Destroy', check_update, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Check update', new_check_update_path %>

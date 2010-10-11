@@ -1,0 +1,2 @@
+module CheckUpdatesHelper
+end

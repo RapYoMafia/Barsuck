@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Current version:</b>
+  <%= @check_update.current_version %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @check_update.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_check_update_path(@check_update) %> |
+<%= link_to 'Back', check_updates_path %>
